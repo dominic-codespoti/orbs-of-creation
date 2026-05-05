@@ -1,29 +1,17 @@
-import { Application, Graphics } from "pixi.js"
+import { PixiGameView } from "./render/PixiGameView"
+import { useGameStore } from "../ui/store"
 
 type StartGameOptions = {
   canvas: HTMLCanvasElement
 }
 
 export async function startGame({ canvas }: StartGameOptions) {
-  const app = new Application()
-
-  await app.init({
+  const view = new PixiGameView({
     canvas,
-    resizeTo: window,
-    background: "#111111",
-    antialias: false,
+    getCombat: () => useGameStore.getState().combat,
+    onCellClick: (x, y) => useGameStore.getState().clickCell(x, y),
+    onNodeClick: (nodeId) => useGameStore.getState().clickNode(nodeId),
   })
 
-  const player = new Graphics()
-
-  player.rect(-16, -16, 32, 32)
-  player.fill(0x44ccff)
-  player.x = app.screen.width / 2
-  player.y = app.screen.height / 2
-
-  app.stage.addChild(player)
-
-  app.ticker.add((ticker) => {
-    player.rotation += 0.03 * ticker.deltaTime
-  })
+  await view.init(canvas)
 }
