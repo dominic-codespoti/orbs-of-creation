@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Game</title>
+  </head>
+  <body>
+    <div id="game-root" class="relative h-screen w-screen overflow-hidden">
+      <canvas
+        id="game-canvas"
+        class="absolute inset-0 block h-full w-full"
+      ></canvas>
+
+      <div
+        id="ui-root"
+        class="pointer-events-none absolute inset-0"
+      ></div>
+    </div>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

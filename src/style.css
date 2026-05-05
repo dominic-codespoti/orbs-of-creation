@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    background: #050505;
+    font-family:
+      Inter,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+  }
+
+  button {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .ui-panel {
+    pointer-events: auto;
+    border-radius: 0.75rem;
+    border: 1px solid rgb(255 255 255 / 18%);
+    background: rgb(0 0 0 / 62%);
+    padding: 0.75rem 1rem;
+    color: white;
+    backdrop-filter: blur(8px);
+  }
+
+  .ui-button {
+    pointer-events: auto;
+    cursor: pointer;
+    border-radius: 0.625rem;
+    border: 1px solid rgb(255 255 255 / 20%);
+    background: rgb(255 255 255 / 12%);
+    padding: 0.625rem 0.875rem;
+    color: white;
+  }
+
+  .ui-button:hover {
+    background: rgb(255 255 255 / 18%);
+  }
+}
