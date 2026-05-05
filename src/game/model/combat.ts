@@ -2,7 +2,6 @@ import { CARD_DEFINITIONS, STARTER_DECK } from "./cards"
 import type {
   CardId,
   CardInstance,
-  CardType,
   CombatLogEntry,
   CombatState,
   GraphEdge,
@@ -255,6 +254,7 @@ export function executeTurn(state: CombatState): CombatState {
     {
       ...next,
       turn: next.turn + 1,
+      discard: [...next.discard, ...next.hand],
       hand: [],
     },
     `Turn ${next.turn + 1}.`,
